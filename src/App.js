@@ -2,17 +2,16 @@ import React from "react";
 import "./App.css";
 import "bulma/css/bulma.css";
 import { Details, Home } from "./pages";
+import {Switch, Route} from "react-router-dom"
 
 class App extends React.Component {
   render() {
-    const url = new URL(document.location);
-
-    const Page = url.searchParams.has("id") ? (
-      <Details id={url.searchParams.get("id")}></Details>
-    ) : (
-      <Home></Home>
-    );
-    return <div className="App">{Page}</div>;
+    return <div className="App">
+      <Switch>
+        <Route exact path="/" component={Home}></Route>
+        <Route exact path="/detail/:id" component={Details}></Route>
+      </Switch>
+    </div>;
   }
 }
 
