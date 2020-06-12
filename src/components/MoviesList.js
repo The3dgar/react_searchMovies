@@ -15,6 +15,7 @@ export class MoviesList extends React.Component {
         {movies.map((movie) => (
           <div className="MoviesList-item" key={movie.imdbID}>
             <Movie
+              id={movie.imdbID}
               title={movie.Title}
               year={movie.Year}
               poster={movie.Poster}
