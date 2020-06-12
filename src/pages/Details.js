@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {ButtonToHome} from "../components"
 const API_KEY = "ccdd084c";
+
 
 export default class Details extends React.Component {
   static propTypes = {
@@ -30,14 +32,12 @@ export default class Details extends React.Component {
     const { id } = this.props.match.params;
     this._fetchMovie({ id });
   }
-  _goBack () {
-    window.location = "/"
-  }
+
   render() {
     const { Title, Poster, Actors, Metascore, Plot } = this.state.movie;
     return (
       <div>
-        <button onClick ={this._goBack}>Go back</button>
+        <ButtonToHome></ButtonToHome>
         <h1>{Title}</h1>
         <img src={Poster} alt="movie img"></img>
         <h3>{Actors}</h3>
